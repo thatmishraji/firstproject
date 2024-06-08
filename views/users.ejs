@@ -1,0 +1,81 @@
+<%- include('Header.ejs') %>
+
+    <div class="pagetitle">
+        <div class="row">
+            <div class="col-9">
+                <h1>Data Tables</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Users List</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-3 text-end">
+                <a href="/add_user" class="btn btn-primary">Add User</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Datatables</h5>
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Zip</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% users.forEach((item,index) => { %>
+                                    <tr>
+                                        <th>
+                                            <%= item.name %>
+                                        </th>
+                                        <th>
+                                            <%= item.email %>
+                                        </th>
+                                        <th>
+                                            <%= item.address %>
+                                        </th>
+                                        <th>
+                                            <%= item.zip %>
+                                        </th>
+                                        <th>
+                                            <%= item.state %>
+                                        </th>
+                                        <th>
+                                            <%= item.city %>
+                                        </th>
+                                        <th>
+                                            <a href="/users_edit/<%= item.id %>" class="btn btn-primary">Edit</a>
+                                        </th>
+                                        <th>
+                                            <button class="btn btn-primary">Delete</button>
+                                        </th>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <%- include('Footer.ejs') %>
